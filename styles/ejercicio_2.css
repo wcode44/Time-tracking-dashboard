@@ -1,0 +1,495 @@
+/*
+  FRONTEND MENTOR - Time tracking dashboard
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+  --bk-perfil: #5747E8;
+  --bk-work: #FF8B64;
+  --bk-play: #56C2E6;
+  --bk-study: #FF5E7D;
+  --bk-exercise: #4BCF83;
+  --bk-social: #7235D1;
+  --bk-self-care: #F1C75B;
+
+  --bk-content: #1D204B;
+  --bk-content-hover: #34397B;
+  --body: #0D1323;
+
+  --colorText: #B9B0FF;
+  --white: #FFF;
+
+  font-size: 62.5%;
+}
+
+
+
+
+
+/* ESTILOS GENERALES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-weight: 300;
+  font-family: 'Rubik', sans-serif;
+  color: var(--colorText);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--body);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+
+
+
+
+/* CONTAINER MAIN*/
+.wrapper {
+  width: 90%;
+  max-width: 90rem;
+  margin: 5rem 0;
+
+  display: grid;
+  grid-template-rows: auto repeat(6, 16rem);
+  grid-template-areas: "perfil"
+                       "work"
+                       "play"
+                       "study"
+                       "exercise"
+                       "social"
+                       "self-care";
+  gap: 2rem;
+}
+
+
+
+
+
+/* CONTAINER CARDS */
+.card {
+  background-repeat: no-repeat;
+  background-position: right 2rem top -.5rem;
+
+  border-radius: 1rem;
+  display: flex;
+}
+
+.card:not(:nth-child(1)) {
+  align-items: flex-end;
+}
+
+
+.card:not(:nth-child(1))
+.box-content {
+  cursor: pointer;
+}
+
+.card:not(:nth-child(1))
+.box-content:hover {
+  background-color: var(--bk-content-hover);
+}
+
+
+
+
+
+/* CONTENT */
+.box-content {
+  width: 100%;
+  padding: 2rem;
+  border-radius: .8rem;
+  background-color: var(--bk-content);
+}
+
+.content-title,
+.content-week {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-title {
+  margin-bottom: 1.5rem;
+}
+
+.content-title h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.content-week
+p:nth-child(1) {
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.content-week
+p:nth-child(2) {
+  font-size: 1.4rem;
+}
+
+
+
+
+
+/* CARD PERFIL - 1*/
+.card:nth-child(1) {
+  flex-direction: column;
+
+  grid-area: perfil;
+  background-color: var(--bk-content);
+}
+
+.card:nth-child(1)
+.box-content {
+  display: flex;
+  align-items: center;
+
+  border-radius: 1rem;
+  background-color: var(--bk-perfil);
+}
+
+.card:nth-child(1)
+.box-content
+img {
+  width: 30%;
+  margin-right: 2rem;
+  border: .3rem solid var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.card:nth-child(1)
+.box-content
+.name {
+  font-size: 1.4rem;
+}
+
+.card:nth-child(1)
+.box-content
+.name span {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.card:nth-child(1)
+.nav ul {
+  font-size: 1.5rem;
+  padding: 1.5rem 0;
+  list-style-type: none;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card:nth-child(1)
+.nav ul li label{
+  cursor: pointer;
+}
+
+.card:nth-child(1)
+.nav ul li label:hover {
+  color: var(--white);
+}
+
+.card:nth-child(1)
+.nav ul li
+input[type="radio"]:checked ~ label {
+  color: var(--white);
+}
+
+
+
+
+
+/* CARDS 2 - 7 */
+.card:nth-child(2) {
+  grid-area: work;
+  background-color: var(--bk-work);
+  background-image: url("../img/icon-work.svg");
+}
+
+.card:nth-child(3) {
+  grid-area: play;
+  background-color: var(--bk-play);
+  background-image: url("../img/icon-play.svg");
+}
+
+.card:nth-child(4) {
+  grid-area: study;
+  background-color: var(--bk-study);
+  background-image: url("../img/icon-study.svg");
+}
+
+.card:nth-child(5) {
+  grid-area: exercise;
+  background-color: var(--bk-exercise);
+  background-image: url("../img/icon-exercise.svg");
+}
+
+.card:nth-child(6) {
+  grid-area: social;
+  background-color: var(--bk-social);
+  background-image: url("../img/icon-social.svg");
+}
+
+.card:nth-child(7) {
+  grid-area: self-care;
+  background-color: var(--bk-self-care);
+  background-image: url("../img/icon-self-care.svg");
+}
+
+
+
+
+
+/* IPHONE 11 - VERTICAL*/
+@media ( min-width: 370px ) {
+  .wrapper {
+    grid-template-rows: auto repeat(6, 18rem);
+  }
+  
+  .card:nth-child(1)
+  .box-content
+  .name {
+    font-size: 1.6rem;
+  }
+
+  .card:nth-child(1)
+  .box-content
+  .name span {
+    font-size: 2.2rem;
+  }
+
+  .card:nth-child(1)
+  .nav ul {
+    font-size: 1.6rem;
+  }
+
+  .box-content {
+    padding: 3rem;
+  }
+
+  .box-content
+  .content-title h3 {
+    font-size: 1.8rem;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(1) {
+    font-size: 3.5rem;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(2) {
+    font-size: 1.4rem;
+  }
+}
+
+
+
+
+
+/* SAMSUNG A10 - VERTICAL/*/
+@media ( min-width: 400px ) {
+  .wrapper {
+    grid-template-rows: auto repeat(6, 19rem);
+  }
+
+  .card:nth-child(1)
+  .nav ul {
+    font-size: 1.7rem;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(1) {
+    font-size: 4rem;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(2) {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+
+/* IPHONE 5 - HORIZONTAL */
+@media ( min-width: 560px ) {
+  .wrapper {
+    width: 70%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto repeat(3, 18rem);
+    grid-template-areas: "perfil perfil"
+                         "work play"
+                         "study exercise"
+                         "social self-care";
+  }
+
+  .card:nth-child(1)
+  .box-content
+  img {
+    width: 20%;
+  }
+
+  .box-content {
+    padding: 2rem;
+  }
+
+  .box-content
+  .content-title h3 {
+    font-size: 1.3rem;
+  }
+
+  .box-content
+  .content-week {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(1) {
+    font-size: 4rem;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(2) {
+    font-size: 1.4rem;
+  }
+}
+
+
+
+
+
+/* SAMSUNG A10 - HORIZONTAL */
+@media ( min-width: 700px ) {
+  .wrapper {
+    grid-template-rows: auto repeat(3, 20rem);
+  }
+
+  .box-content
+  .content-title h3 {
+    font-size: 1.7rem;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(1) {
+    font-size: 5rem;
+  }
+
+  .box-content
+  .content-week
+  p:nth-child(2) {
+    font-size: 1.6;
+  }
+}
+
+
+
+
+
+/* TABLET VERTICAL */
+@media ( min-width: 800px ) {
+  .wrapper {
+    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 20rem);
+    grid-template-areas: "perfil work play"
+                         "perfil study exercise"
+                         "perfil social self-care";
+  }
+
+  .box-content {
+    padding: 2.5rem;
+  }
+
+  .card:nth-child(1)
+  .box-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card:nth-child(1)
+  .box-content img {
+    width: 50%;
+    margin: 0 0 3rem;
+  }
+
+  .card:nth-child(1)
+  .box-content
+  .name {
+    font-size: 1.4rem
+  }
+
+  .card:nth-child(1)
+  .box-content
+  .name span {
+    font-size: 2.8rem;
+    font-weight: 100;
+  }
+
+  .card:nth-child(1)
+  .nav ul {
+    padding: 2.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card
+  .box-content
+  .content-title h3 {
+    font-size: 1.5rem;
+  }
+
+  .card
+  .box-content
+  .content-week 
+  p:nth-child(1) {
+    font-size: 4.5rem;
+  }
+}
+
+
+
+
+
+/* MONITOR */
+@media ( min-width: 1000px ) {
+  .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 20rem);
+    grid-template-areas: "perfil work play study"
+                         "perfil exercise social self-care";
+  }
+
+  .card:nth-child(1)
+  .box-content {
+    flex-grow: 1;
+  }
+}
+
